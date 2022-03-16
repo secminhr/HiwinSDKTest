@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="HiwinSDKTest.ContentPages.ReadRobotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HiwinSDKTest.ContentPages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    NavigationCacheMode="Required">
+
+    <RelativePanel>
+        <TextBlock x:Name="ReadPageTitle" HorizontalAlignment="Left" Margin="24,24,0,0" Text="讀取手臂資訊" TextWrapping="Wrap" VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" FontSize="28"/>
+        <ListView x:Name="ReadTitleList" RelativePanel.Below="ReadPageTitle" RelativePanel.AlignLeftWithPanel="True" Margin="24,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionMode="None" FontWeight="Bold" FontSize="14">
+            <x:String>加速度比例(%)</x:String>
+            <x:String>點對點運動速度(%)</x:String>
+            <x:String>直線運動速度(mm/s)</x:String>
+            <x:String>整體速度(%)</x:String>
+        </ListView>
+        <ListView ItemsSource="{x:Bind RobotProperty, Mode=OneWay}" RelativePanel.Below="ReadPageTitle" Margin="24,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionMode="None" RelativePanel.RightOf="ReadTitleList" FontWeight="Normal" FontSize="14" />
+        <Button Click="{x:Bind UpdateRobotProperty}" RelativePanel.RightOf="ReadPageTitle" RelativePanel.AlignVerticalCenterWith="ReadPageTitle" Margin="24,24,0,0">
+            <SymbolIcon Symbol="Refresh" />
+        </Button>
+
+
+    </RelativePanel>
+</Page>
